@@ -21,6 +21,9 @@ protected:
 	void returnState();
 	void pushState(State* state);
 
+	//temporary variable
+	bool switch_held = false;
+
 public:
 	State(sf::RenderWindow* window, std::stack<State*>* states);
 	virtual ~State();

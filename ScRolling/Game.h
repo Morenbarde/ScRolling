@@ -7,8 +7,8 @@ class Game
 private:
 	sf::VideoMode video_mode;
 	sf::RenderWindow* window;
-	int window_height = 600;
-	int window_width = 1000;
+	int window_height = 800;
+	int window_width = 1800;
 
 	sf::Event event;
 	
