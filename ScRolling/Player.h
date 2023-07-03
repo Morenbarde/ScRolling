@@ -13,7 +13,7 @@ private:
 	sf::Clock update_clock;
 	sf::Time update_time;
 public:
-	Player(sf::Color color, float x, float y, float radius, float x_velocity);
+	Player(sf::Color color, sf::Vector2f position, float radius, float x_velocity);
 	~Player();
 
 	//getters

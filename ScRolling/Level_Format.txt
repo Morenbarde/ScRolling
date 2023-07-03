@@ -1,0 +1,11 @@
+x y r v : Ball Starting Position + radius + velocity
+x y x2 y2 r g b c : Rect upperleft, lowerright, color, collision(1/0) (f means distance from edge)
+;
+;
+;
+;
+;
+;
+;
+;
+;

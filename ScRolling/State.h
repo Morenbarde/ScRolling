@@ -16,8 +16,6 @@ protected:
 	std::stack<State*>* states;
 	sf::RenderWindow* window;
 
-	sf::Event event;
-
 	void returnState();
 	void pushState(State* state);
 

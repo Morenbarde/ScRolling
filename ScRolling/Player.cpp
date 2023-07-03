@@ -1,16 +1,15 @@
 #include "Player.h"
 #include <iostream>
 
-Player::Player(sf::Color color, float x, float y, float radius, float x_velocity)
+Player::Player(sf::Color color, sf::Vector2f position, float radius, float x_velocity)
 {
 	render_object.setFillColor(color);
-	position.x = x;
-	position.y = y;
 	render_object.setPosition(position);
 
 	render_object.setRadius(radius);
 	this->radius = radius;
 
+	this->position = position;
 	velocity.x = x_velocity;
 	velocity.y = 0;
 }

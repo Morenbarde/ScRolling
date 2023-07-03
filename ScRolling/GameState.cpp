@@ -4,7 +4,10 @@ GameState::GameState(sf::RenderWindow* window, std::stack<State*>* states)
 	:State(window, states)
 {
 	switch_held = true;
-	player = new Player(sf::Color::Blue, 40, 40, 10, 10);
+	level = new GameLevel(1);
+	game_objects = level->getGameObjects();
+	player = new Player(sf::Color::Blue, level->getStartPosition(), level->getStartRadius(),
+		level->getStartVelocity());
 }
 
 GameState::~GameState()
@@ -37,5 +40,8 @@ void GameState::update()
 
 void GameState::render(sf::RenderTarget* target)
 {
+	for (auto & element : *game_objects) {
+		target->draw(element->object);
+	}
 	target->draw(player->getRenderObject());
 }
