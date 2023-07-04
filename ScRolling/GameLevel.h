@@ -30,7 +30,7 @@ private:
 
 	RECTOBJECT_T* obj;
 
-	float x, y, x2, y2;
+	float x, y, width, height;
 	int r, g, b;
 	int col;
 public:

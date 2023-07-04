@@ -42,9 +42,9 @@ void GameLevel::readLevel()
 		level_file >> start_position.x >> start_position.y >> start_radius >> start_velocity;
 		while (!level_file.eof()) {
 			sf::RectangleShape rect;
-			level_file >> x >> y >> x2 >> y2 >> r >> g >> b >> col;
+			level_file >> x >> y >> width >> height >> r >> g >> b >> col;
 			rect.setPosition(x, y);
-			rect.setSize(sf::Vector2f((x2 - x), (y2 - y)));
+			rect.setSize(sf::Vector2f((width), (height)));
 			rect.setFillColor(sf::Color(r, g, b, 255));
 			
 			obj = new RECTOBJECT_T;
