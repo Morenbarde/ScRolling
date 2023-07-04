@@ -36,6 +36,11 @@ float Player::getRadius()
 	return this->radius;
 }
 
+sf::Vector2f Player::getVelocity()
+{
+	return this->velocity;
+}
+
 void Player::update()
 {
 	update_time = update_clock.getElapsedTime();
@@ -55,7 +60,6 @@ void Player::updatePosition()
 	position.y -= velocity.y / 6;
 
 	velocity.y += acceleration;
-	std::cout << velocity.y << "\n";
 }
 
 void Player::reverse()

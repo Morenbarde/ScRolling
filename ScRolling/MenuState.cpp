@@ -22,7 +22,6 @@ void MenuState::pollEvents()
 
 void MenuState::update()
 {
-	std::cout << "Hello from MenuState \n";
 }
 
 void MenuState::render(sf::RenderTarget* target)

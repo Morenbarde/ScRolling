@@ -26,6 +26,7 @@ public:
 	//getters
 	sf::CircleShape getRenderObject();
 	float getRadius();
+	sf::Vector2f getVelocity();
 
 	void update();
 	

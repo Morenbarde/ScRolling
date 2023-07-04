@@ -23,32 +23,38 @@ bool GameState::checkCollision()
 			if (area.width > area.height)
 			{
 				player->exitFreeFall();
-				if (area.contains({ area.left, player->getRenderObject().getPosition().y }))
+				if (area.contains({ area.left, player->getRenderObject().getPosition().y }) && player->getVelocity().y >= 0)
 				{
 					// Up side crash
-					player->setPosition(player->getRenderObject().getPosition().x, player->getRenderObject().getPosition().y + area.height);
+					player->setPosition(player->getRenderObject().getPosition().x, 
+						player->getRenderObject().getPosition().y + area.height);
 					player->bump();
 				}
-				else
+				else if (player->getVelocity().y < 0)
 				{
 					// Down side crash
-					player->setPosition(player->getRenderObject().getPosition().x, player->getRenderObject().getPosition().y - area.height);
+					player->setPosition(player->getRenderObject().getPosition().x, 
+						player->getRenderObject().getPosition().y - area.height);
 					player->bump();
 				}
 			}
 			else if (area.width < area.height)
 			{
 				if (area.contains({ player->getRenderObject().getPosition().x 
-					+ player->getRenderObject().getGlobalBounds().width - 1.f, area.top + 1.f }))
+					+ player->getRenderObject().getGlobalBounds().width - 1.f, area.top + 1.f })
+					&& player->getVelocity().x >= 0)
 				{
 					//Right side crash
-					player->setPosition(player->getRenderObject().getPosition().x - area.width, player->getRenderObject().getPosition().y);
+					player->setPosition(player->getRenderObject().getPosition().x - area.width, 
+						player->getRenderObject().getPosition().y);
 					player->reverse();
 				}
-				else
+				else if (area.contains({ player->getRenderObject().getPosition().x + 1.f, area.top + 1.f })
+					&& player->getVelocity().x < 0)
 				{
 					//Left side crash
-					player->setPosition(player->getRenderObject().getPosition().x + area.width, player->getRenderObject().getPosition().y);
+					player->setPosition(player->getRenderObject().getPosition().x + area.width, 
+						player->getRenderObject().getPosition().y);
 					player->reverse();
 				}
 			}
