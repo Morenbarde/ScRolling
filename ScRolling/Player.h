@@ -27,6 +27,7 @@ public:
 	sf::CircleShape getRenderObject();
 	float getRadius();
 	sf::Vector2f getVelocity();
+	bool inFreeFall();
 
 	void update();
 	

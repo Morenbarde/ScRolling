@@ -17,6 +17,10 @@ private:
 
     bool jump_held = false;
 
+    sf::Clock collision_clock;
+    sf::Time collision_time;
+    float time_to_free_fall = 0.05;
+
 public:
     GameState(sf::RenderWindow* window, std::stack<State*>* states);
     virtual ~GameState();

@@ -41,6 +41,11 @@ sf::Vector2f Player::getVelocity()
 	return this->velocity;
 }
 
+bool Player::inFreeFall()
+{
+	return this->free_fall;
+}
+
 void Player::update()
 {
 	update_time = update_clock.getElapsedTime();
