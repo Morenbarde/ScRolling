@@ -15,6 +15,11 @@ std::vector<RECTOBJECT_T*>* GameLevel::getGameObjects()
 	return &this->game_objects;
 }
 
+std::vector<RECTOBJECT_T*>* GameLevel::getCollisionObjects()
+{
+	return &this->collision_objects;
+}
+
 sf::Vector2f GameLevel::getStartPosition()
 {
 	return this->start_position;
@@ -42,9 +47,14 @@ void GameLevel::readLevel()
 			rect.setSize(sf::Vector2f((x2 - x), (y2 - y)));
 			rect.setFillColor(sf::Color(r, g, b, 255));
 			
-			RECTOBJECT_T* obj = new RECTOBJECT_T;
+			obj = new RECTOBJECT_T;
 			obj->object = rect;
 			obj->collision = col;
+
+			if (col) {
+				collision_objects.push_back(obj);
+			}
+
 			game_objects.push_back(obj);
 		}
 	}

@@ -1,5 +1,16 @@
 #include "Game.h"
 
+void Game::initVariables()
+{
+	font.loadFromFile("Blacklisted.ttf");
+
+	this->game_info.setFont(font);
+	this->game_info.setString("");
+	this->game_info.setCharacterSize(20);
+	this->game_info.setStyle(sf::Text::Bold);
+	this->game_info.setPosition(50, 30);
+}
+
 void Game::initWindow()
 {
 
@@ -17,6 +28,7 @@ void Game::initStates()
 Game::Game()
 {
 	running = true;
+	initVariables();
 	initWindow();
 	initStates();
 }
@@ -46,6 +58,12 @@ void Game::pollEvents()
 			window->close();
 			//running = false;
 			break;
+		case sf::Event::KeyPressed:
+			switch (this->event.key.code) {
+			case sf::Keyboard::F3:
+				show_game_info = !show_game_info;
+				break;
+			}
 		}
 	}
 	if (!states.empty()) {
@@ -58,6 +76,15 @@ void Game::update()
 	if (!states.empty()) {
 		states.top()->update();
 	}
+
+	frame_counter += 1;
+	dt = fps_clock.getElapsedTime();
+	if (dt.asSeconds() >= 1) {
+		fps = frame_counter;
+		frame_counter = 0;
+		fps_clock.restart();
+		this->game_info.setString("FPS: " + std::to_string(fps));
+	}
 }
 
 void Game::render()
@@ -66,6 +93,10 @@ void Game::render()
 
 	if (!states.empty()) {
 		states.top()->render(this->window);
+	}
+
+	if (show_game_info) {
+		window->draw(game_info);
 	}
 
 	window->display();

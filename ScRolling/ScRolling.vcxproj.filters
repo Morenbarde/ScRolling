@@ -19,6 +19,9 @@
     <Filter Include="Resource Files\Levels">
       <UniqueIdentifier>{08fa4aac-4a30-41f9-ab93-443082d9dbae}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Fonts">
+      <UniqueIdentifier>{a0376146-ae7d-4999-a4db-c2800924546f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -36,10 +39,10 @@
     <ClCompile Include="MenuState.cpp">
       <Filter>States</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
+    <ClCompile Include="GameLevel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameLevel.cpp">
+    <ClCompile Include="Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -56,11 +59,11 @@
     <ClInclude Include="MenuState.h">
       <Filter>States</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GameLevel.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -70,5 +73,13 @@
     <Text Include="Level_Format.txt">
       <Filter>Resource Files\Levels</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Ancient_Medium.ttf">
+      <Filter>Resource Files\Fonts</Filter>
+    </Font>
+    <Font Include="Blacklisted.ttf">
+      <Filter>Resource Files\Fonts</Filter>
+    </Font>
   </ItemGroup>
 </Project>

@@ -10,13 +10,19 @@ class GameState :
 private:
     Player* player;
     GameLevel* level;
-    std::vector<RECTOBJECT_T*>* game_objects = nullptr;
-    std::vector<RECTOBJECT_T*>::iterator iter;
+    std::vector<RECTOBJECT_T*>* game_objects;
+    std::vector<RECTOBJECT_T*>* collision_objects;
+
+    dir direction = ndir;
+
+    bool jump_held = false;
+
 public:
     GameState(sf::RenderWindow* window, std::stack<State*>* states);
     virtual ~GameState();
 
-    void endState();
+    //functions
+    bool checkCollision();
 
     //Updates
     void pollEvents();

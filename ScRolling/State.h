@@ -26,8 +26,6 @@ public:
 	State(sf::RenderWindow* window, std::stack<State*>* states);
 	virtual ~State();
 
-	virtual void endState() = 0;
-
 	virtual void pollEvents() = 0; //pure virtual, need to be defined in child class
 	virtual void update() = 0;
 	virtual void render(sf::RenderTarget* target = nullptr) = 0;

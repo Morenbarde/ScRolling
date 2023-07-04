@@ -16,7 +16,17 @@ private:
 
 	std::stack<State*> states;
 
+	sf::Clock fps_clock;
+	sf::Time dt;
+	int frame_counter = 0;
+	int fps;
+	sf::Font font;
+	sf::Text game_info;
+
+	bool show_game_info = false;
+
 	//Initializers
+	void initVariables();
 	void initWindow();
 	void initStates();
 

@@ -153,6 +153,10 @@
     <Text Include="Level_1.txt" />
     <Text Include="Level_Format.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="Ancient_Medium.ttf" />
+    <Font Include="Blacklisted.ttf" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

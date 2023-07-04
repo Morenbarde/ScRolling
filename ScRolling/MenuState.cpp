@@ -8,11 +8,6 @@ MenuState::MenuState(sf::RenderWindow* window, std::stack<State*>* states)
 MenuState::~MenuState()
 {
 }
-
-void MenuState::endState()
-{
-}
-
 void MenuState::pollEvents()
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) {

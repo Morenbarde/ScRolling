@@ -19,25 +19,69 @@ Player::~Player()
 	delete this;
 }
 
+void Player::setPosition(float x, float y)
+{
+	position.x = x;
+	position.y = y;
+	render_object.setPosition(position);
+}
+
 sf::CircleShape Player::getRenderObject()
 {
 	return this->render_object;
+}
+
+float Player::getRadius()
+{
+	return this->radius;
 }
 
 void Player::update()
 {
 	update_time = update_clock.getElapsedTime();
 	if (update_time.asSeconds() >= (1.0 / 60.0)) {
-		this->roll();
+		this->updatePosition();
+
 		render_object.setPosition(position);
 		update_clock.restart();
 	}
 }
 
-void Player::roll()
+void Player::updatePosition()
 {
 	//velocity == m/s
 	//10 p == 1 m
+	position.x += velocity.x / 6;
+	position.y -= velocity.y / 6;
 
-	position.x += velocity.x/6;
+	velocity.y += acceleration;
+	std::cout << velocity.y << "\n";
+}
+
+void Player::reverse()
+{
+	velocity.x *= -1;
+}
+
+void Player::bump()
+{
+	velocity.y = 0;
+}
+
+void Player::jump()
+{
+	if (!free_fall) {
+		velocity.y = jump_strength;
+		enterFreeFall();
+	}
+}
+
+void Player::enterFreeFall()
+{
+	free_fall = true;
+}
+
+void Player::exitFreeFall()
+{
+	free_fall = false;
 }
