@@ -1,4 +1,5 @@
 x y r v : Ball Starting Position + radius + velocity
+x y width heigh : Level ending position
 x y width height r g b c : Rect upperleft, width, height, color, collision(1/0) (f means distance from edge)
 ;
 ;

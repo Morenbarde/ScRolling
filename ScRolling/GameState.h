@@ -24,7 +24,7 @@ private:
     bool level_ended = false;
 
 public:
-    GameState(sf::RenderWindow* window, std::stack<State*>* states);
+    GameState(sf::RenderWindow* window, std::stack<State*>* states, int level);
     virtual ~GameState();
 
     //functions

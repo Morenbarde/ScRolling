@@ -1,13 +1,14 @@
 #include "GameState.h"
 
-GameState::GameState(sf::RenderWindow* window, std::stack<State*>* states)
+GameState::GameState(sf::RenderWindow* window, std::stack<State*>* states, int level)
 	:State(window, states)
 {
 	switch_held = true;
-	loadLevel(1);
-	game_objects = level->getGameObjects();
-	collision_objects = level->getCollisionObjects();
-	player = new Player(sf::Color::Blue, level->getStartPosition(), level->getStartRadius(), level->getStartVelocity());
+	loadLevel(level);
+	game_objects = this->level->getGameObjects();
+	collision_objects = this->level->getCollisionObjects();
+	player = new Player(sf::Color::Blue, this->level->getStartPosition(), 
+		this->level->getStartRadius(), this->level->getStartVelocity());
 }
 
 GameState::~GameState()

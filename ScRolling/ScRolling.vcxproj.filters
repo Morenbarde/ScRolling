@@ -76,6 +76,9 @@
     <Text Include="Level_1.txt">
       <Filter>Resource Files\Levels</Filter>
     </Text>
+    <Text Include="Level_2.txt">
+      <Filter>Resource Files\Levels</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <Font Include="Ancient_Medium.ttf">

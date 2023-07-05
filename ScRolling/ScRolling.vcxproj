@@ -151,6 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Held_Level.txt" />
+    <Text Include="Level_2.txt" />
     <Text Include="Level_Format.txt" />
     <Text Include="Level_1.txt" />
   </ItemGroup>
