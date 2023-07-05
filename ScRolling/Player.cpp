@@ -64,7 +64,7 @@ void Player::updatePosition()
 	position.x += velocity.x / 6;
 	position.y -= velocity.y / 6;
 
-	velocity.y += acceleration;
+	velocity.y += acceleration*(radius/10);
 }
 
 void Player::reverse()
@@ -80,7 +80,7 @@ void Player::bump()
 void Player::jump()
 {
 	if (!free_fall) {
-		velocity.y = jump_strength;
+		velocity.y = jump_strength*(radius/10);
 		enterFreeFall();
 	}
 }

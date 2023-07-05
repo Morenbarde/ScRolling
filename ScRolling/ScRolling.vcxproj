@@ -150,8 +150,9 @@
     <ClInclude Include="State.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Level_1.txt" />
+    <Text Include="Held_Level.txt" />
     <Text Include="Level_Format.txt" />
+    <Text Include="Level_1.txt" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="Ancient_Medium.ttf" />

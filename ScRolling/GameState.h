@@ -21,11 +21,14 @@ private:
     sf::Time collision_time;
     float time_to_free_fall = 0.05;
 
+    bool level_ended = false;
+
 public:
     GameState(sf::RenderWindow* window, std::stack<State*>* states);
     virtual ~GameState();
 
     //functions
+    void loadLevel(int l);
     bool checkCollision();
 
     //Updates

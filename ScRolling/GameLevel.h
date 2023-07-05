@@ -24,6 +24,7 @@ private:
 	std::string line_string;
 	std::string data_string;
 
+
 	sf::Vector2f start_position;
 	float start_velocity;
 	float start_radius;
@@ -33,6 +34,9 @@ private:
 	float x, y, width, height;
 	int r, g, b;
 	int col;
+
+	sf::RectangleShape level_end;
+
 public:
 	GameLevel(int level);
 	~GameLevel();
@@ -43,6 +47,7 @@ public:
 	sf::Vector2f getStartPosition();
 	float getStartRadius();
 	float getStartVelocity();
+	sf::RectangleShape getLevelEnding();
 
 	void readLevel();
 };
