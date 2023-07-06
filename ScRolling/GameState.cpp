@@ -114,9 +114,8 @@ void GameState::pollEvents(sf::Event event)
 			break;
 
 		case sf::Keyboard::R:
-			if (!level_ended) {
-				loadLevel();
-			}
+			level_ended = false;
+			loadLevel();
 		}
 	}
 }
