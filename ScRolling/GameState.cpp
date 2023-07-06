@@ -102,10 +102,7 @@ void GameState::pollEvents(sf::Event event)
 			if (!level_ended) {
 				player->jump();
 			}
-			break;
-
-		case sf::Keyboard::Enter:
-			if (level_ended) {
+			else {
 				if (current_level < MAX_LEVELS) {
 					this->current_level += 1;
 					loadLevel();
