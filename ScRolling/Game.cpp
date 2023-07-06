@@ -65,9 +65,9 @@ void Game::pollEvents()
 				break;
 			}
 		}
-	}
-	if (!states.empty()) {
-		states.top()->pollEvents();
+		if (!states.empty()) {
+			states.top()->pollEvents(this->event);
+		}
 	}
 }
 

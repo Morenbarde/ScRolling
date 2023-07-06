@@ -2,7 +2,6 @@
 MenuState::MenuState(sf::RenderWindow* window, std::stack<State*>* states)
 	:State(window, states)
 {
-	switch_held = true;
 }
 
 MenuState::~MenuState()
@@ -12,15 +11,21 @@ void MenuState::openGame(int level)
 {
 	pushState(new GameState(this->window, this->states, this->chosen_level));
 }
-void MenuState::pollEvents()
+void MenuState::pollEvents(sf::Event event)
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) {
-		if (!this->switch_held) {
-			this->switch_held = true;
+	std::cout << "Message 1";
+	switch (event.type)
+	{
+	case sf::Event::KeyPressed:
+		std::cout << "Message 2";
+		switch (event.key.code) {
+
+		case sf::Keyboard::Tab:
+			std::cout << "Message 3";
 			openGame(this->chosen_level);
+			break;
 		}
-	} else {
-		this->switch_held = false;
+		break;	
 	}
 }
 

@@ -15,7 +15,7 @@ public:
     //functions
     void openGame(int level);
 
-    void pollEvents();
+    void pollEvents(sf::Event event);
     void update();
     void render(sf::RenderTarget* target = nullptr);
 };

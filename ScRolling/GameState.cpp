@@ -2,23 +2,30 @@
 
 GameState::GameState(sf::RenderWindow* window, std::stack<State*>* states, int level)
 	:State(window, states)
-{
-	switch_held = true;
-	loadLevel(level);
-	game_objects = this->level->getGameObjects();
-	collision_objects = this->level->getCollisionObjects();
-	player = new Player(sf::Color::Blue, this->level->getStartPosition(), 
-		this->level->getStartRadius(), this->level->getStartVelocity());
+{	
+	std::cout << "Message recieved";
+	this->current_level = level;
+	loadLevel();
+
+	font.loadFromFile("Blacklisted.ttf");
+	end_text.setFont(font);
+	end_text.setString("Level Completed!");
+	end_text.setCharacterSize(60);
+	end_text.setStyle(sf::Text::Bold);
+	end_text.setPosition(660, 370);
 }
 
 GameState::~GameState()
 {
 }
 
-void GameState::loadLevel(int l)
+void GameState::loadLevel()
 {
-	level = new GameLevel(l);
 	level_ended = false;
+	level = new GameLevel(this->current_level);
+	game_objects = this->level->getGameObjects();
+	collision_objects = this->level->getCollisionObjects();
+	player = new Player(sf::Color::Blue, this->level->getStartPosition(), this->level->getStartRadius(), this->level->getStartVelocity());
 }
 
 bool GameState::checkCollision()
@@ -82,27 +89,35 @@ bool GameState::checkCollision()
 	return collision;
 }
 
-void GameState::pollEvents()
+void GameState::pollEvents(sf::Event event)
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) {
-		//std::cout << switch_held << "\n";
-		if (!this->switch_held) {
-			this->switch_held = true;
+	switch (event.type)
+	{
+	case sf::Event::KeyPressed:
+		switch (event.key.code) {
+
+		case sf::Keyboard::Tab:
 			returnState();
+			break;
+
+		case sf::Keyboard::Space:
+			if (!level_ended) {
+				player->jump();
+			}
+			break;
+
+		case sf::Keyboard::Enter:
+			if (level_ended) {
+				if (current_level < MAX_LEVELS) {
+					this->current_level += 1;
+					loadLevel();
+				}
+				else {
+					returnState();
+				}
+			}
+			break;
 		}
-	}
-	else {
-		this->switch_held = false;
-		//std::cout << switch_held << "\n";
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-		if (!this->jump_held && !level_ended) {
-			this->jump_held = true;
-			player->jump();
-		}
-	}
-	else {
-		this->jump_held = false;
 	}
 }
 
@@ -118,4 +133,7 @@ void GameState::render(sf::RenderTarget* target)
 		target->draw(element->object);
 	}
 	target->draw(player->getRenderObject());
+	if (level_ended) {
+		target->draw(end_text);
+	}
 }

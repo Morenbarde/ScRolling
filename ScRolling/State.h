@@ -19,14 +19,11 @@ protected:
 	void returnState();
 	void pushState(State* state);
 
-	//temporary variable
-	bool switch_held = false;
-
 public:
 	State(sf::RenderWindow* window, std::stack<State*>* states);
 	virtual ~State();
 
-	virtual void pollEvents() = 0; //pure virtual, need to be defined in child class
+	virtual void pollEvents(sf::Event event) = 0; //pure virtual, need to be defined in child class
 	virtual void update() = 0;
 	virtual void render(sf::RenderTarget* target = nullptr) = 0;
 };

@@ -8,6 +8,9 @@ class GameState :
     public State
 {
 private:
+    int MAX_LEVELS = 2;
+
+
     Player* player;
     GameLevel* level;
     std::vector<RECTOBJECT_T*>* game_objects;
@@ -15,24 +18,26 @@ private:
 
     dir direction = ndir;
 
-    bool jump_held = false;
+    int current_level;
 
     sf::Clock collision_clock;
     sf::Time collision_time;
     float time_to_free_fall = 0.05;
 
     bool level_ended = false;
+    sf::Font font;
+    sf::Text end_text;
 
 public:
     GameState(sf::RenderWindow* window, std::stack<State*>* states, int level);
     virtual ~GameState();
 
     //functions
-    void loadLevel(int l);
+    void loadLevel();
     bool checkCollision();
 
     //Updates
-    void pollEvents();
+    void pollEvents(sf::Event event);
     void update();
     void render(sf::RenderTarget* target = nullptr);
 };
