@@ -3,7 +3,6 @@
 GameState::GameState(sf::RenderWindow* window, std::stack<State*>* states, int level)
 	:State(window, states)
 {	
-	std::cout << "Message recieved";
 	this->current_level = level;
 	loadLevel();
 
@@ -33,7 +32,6 @@ bool GameState::checkCollision()
 	bool collision = false;
 	
 	if (player->getRenderObject().getGlobalBounds().intersects(level->getLevelEnding().getGlobalBounds()) && !level_ended) {
-		std::cout << "Level Completed!";
 		level_ended = true;
 	} else {
 		for (auto& element : *collision_objects) {
@@ -117,6 +115,11 @@ void GameState::pollEvents(sf::Event event)
 				}
 			}
 			break;
+
+		case sf::Keyboard::R:
+			if (!level_ended) {
+				loadLevel();
+			}
 		}
 	}
 }
