@@ -33,7 +33,7 @@ bool GameState::checkCollision()
 	
 	if (player->getRenderObject().getGlobalBounds().intersects(level->getLevelEnding().getGlobalBounds()) && !level_ended) {
 		level_ended = true;
-		is_jumping = false; //May Remove this Feature
+		is_jumping = false;
 	} else {
 		for (auto& element : *collision_objects) {
 			sf::FloatRect area;

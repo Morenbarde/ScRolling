@@ -59,7 +59,7 @@ void Player::update()
 
 void Player::updatePosition()
 {
-	//velocity == m/s
+	//velocity == 1 m/s
 	//10 p == 1 m
 	position.x += velocity.x / 6;
 	position.y -= velocity.y / 6;

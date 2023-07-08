@@ -67,7 +67,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Level_5.txt">
+    <Text Include="Level_6.txt">
       <Filter>Resource Files\Levels</Filter>
     </Text>
     <Text Include="Level_Format.txt">
@@ -83,6 +83,9 @@
       <Filter>Resource Files\Levels</Filter>
     </Text>
     <Text Include="Level_4.txt">
+      <Filter>Resource Files\Levels</Filter>
+    </Text>
+    <Text Include="Level_5.txt">
       <Filter>Resource Files\Levels</Filter>
     </Text>
   </ItemGroup>
