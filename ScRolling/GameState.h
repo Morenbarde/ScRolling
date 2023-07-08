@@ -28,6 +28,8 @@ private:
     sf::Font font;
     sf::Text end_text;
 
+    bool is_jumping = false;
+
 public:
     GameState(sf::RenderWindow* window, std::stack<State*>* states, int level);
     virtual ~GameState();

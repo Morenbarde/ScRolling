@@ -33,6 +33,7 @@ bool GameState::checkCollision()
 	
 	if (player->getRenderObject().getGlobalBounds().intersects(level->getLevelEnding().getGlobalBounds()) && !level_ended) {
 		level_ended = true;
+		is_jumping = false; //May Remove this Feature
 	} else {
 		for (auto& element : *collision_objects) {
 			sf::FloatRect area;
@@ -100,7 +101,7 @@ void GameState::pollEvents(sf::Event event)
 
 		case sf::Keyboard::Space:
 			if (!level_ended) {
-				player->jump();
+				is_jumping = true;
 			}
 			else {
 				if (current_level < MAX_LEVELS) {
@@ -116,12 +117,26 @@ void GameState::pollEvents(sf::Event event)
 		case sf::Keyboard::R:
 			level_ended = false;
 			loadLevel();
+			break;
 		}
+		break;
+
+	case sf::Event::KeyReleased:
+		switch (event.key.code) {
+
+			case sf::Keyboard::Space:
+				is_jumping = false;
+				break;
+		}
+		break;
 	}
 }
 
 void GameState::update()
 {
+	if (is_jumping) {
+		player->jump();
+	}
 	player->update();
 	checkCollision();
 }
