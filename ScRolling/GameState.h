@@ -27,6 +27,7 @@ private:
     bool level_ended = false;
     sf::Font font;
     sf::Text end_text;
+    sf::RectangleShape end_screen = sf::RectangleShape(sf::Vector2f(0, 0));
 
     bool is_jumping = false;
 

@@ -12,6 +12,8 @@ GameState::GameState(sf::RenderWindow* window, std::stack<State*>* states, int l
 	end_text.setCharacterSize(60);
 	end_text.setStyle(sf::Text::Bold);
 	end_text.setPosition(660, 370);
+	end_screen.setSize(sf::Vector2f(window->getSize().x, window->getSize().y));
+	end_screen.setFillColor(sf::Color(0, 0, 0, 150));
 }
 
 GameState::~GameState()
@@ -148,6 +150,7 @@ void GameState::render(sf::RenderTarget* target)
 	}
 	target->draw(player->getRenderObject());
 	if (level_ended) {
+		target->draw(end_screen);
 		target->draw(end_text);
 	}
 }
