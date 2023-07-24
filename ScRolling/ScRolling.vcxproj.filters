@@ -82,13 +82,13 @@
     <Text Include="Level_3.txt">
       <Filter>Resource Files\Levels</Filter>
     </Text>
-    <Text Include="Level_4.txt">
-      <Filter>Resource Files\Levels</Filter>
-    </Text>
     <Text Include="Level_5.txt">
       <Filter>Resource Files\Levels</Filter>
     </Text>
     <Text Include="Level_6.txt">
+      <Filter>Resource Files\Levels</Filter>
+    </Text>
+    <Text Include="Level_4.txt">
       <Filter>Resource Files\Levels</Filter>
     </Text>
   </ItemGroup>

@@ -151,13 +151,13 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Level_3.txt" />
-    <Text Include="Level_4.txt" />
     <Text Include="Level_5.txt" />
+    <Text Include="Level_6.txt" />
     <Text Include="Level_7.txt" />
     <Text Include="Level_2.txt" />
     <Text Include="Level_Format.txt" />
     <Text Include="Level_1.txt" />
-    <Text Include="Level_6.txt" />
+    <Text Include="Level_4.txt" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="Ancient_Medium.ttf" />

@@ -8,7 +8,7 @@ class GameState :
     public State
 {
 private:
-    int MAX_LEVELS = 6;
+    int MAX_LEVELS = 7;
 
 
     Player* player;

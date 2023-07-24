@@ -7,7 +7,7 @@ class MenuState :
     public State
 {
 private:
-    int chosen_level = 5;
+    int chosen_level = 1;
 public:
     MenuState(sf::RenderWindow* window, std::stack<State*>* states);
     virtual ~MenuState();
